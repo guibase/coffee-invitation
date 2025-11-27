@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Convite</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #f4f4f4, #e8e8e8);
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 60px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            max-width: 420px;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            height: 120px;
+            position: relative;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        #sim {
+            background-color: #2d77ff;
+            color: white;
+        }
+
+        #sim:hover {
+            background-color: #1f5ed1;
+        }
+
+        /* animação de tremer */
+        @keyframes tremer {
+            0% { transform: translateX(-50%) translateY(0); }
+            25% { transform: translateX(-50%) translateY(-3px); }
+            50% { transform: translateX(-50%) translateY(3px); }
+            75% { transform: translateX(-50%) translateY(-2px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+
+        #nao {
+            background-color: #c9c9c9;
+            color: #333;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 0.25s ease, left 0.25s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Você aceitaria tomar um café comigo?</h1>
+
+        <div class="buttons" id="area-limite">
+            <button id="sim" onclick="window.location.href='yes.html'">Sim</button>
+            <button id="nao">Não</button>
+        </div>
+    </div>
+
+    <script>
+        const botaoNao = document.getElementById("nao");
+        const area = document.getElementById("area-limite");
+
+        // Tremer antes de fugir
+        botaoNao.addEventListener("mouseover", () => {
+            botaoNao.style.animation = "tremer 0.25s";
+
+            setTimeout(() => {
+                botaoNao.style.animation = "";
+
+                const areaWidth = area.clientWidth;
+                const areaHeight = area.clientHeight;
+
+                const botaoWidth = botaoNao.offsetWidth;
+                const botaoHeight = botaoNao.offsetHeight;
+
+                // limite aumentado (agora pode fugir bem mais)
+                const limiteExtra = 150;
+
+                const maxX = areaWidth - botaoWidth + limiteExtra;
+                const maxY = areaHeight - botaoHeight + limiteExtra;
+
+                const minX = -limiteExtra;
+                const minY = -limiteExtra;
+
+                const newX = Math.random() * (maxX - minX) + minX;
+                const newY = Math.random() * (maxY - minY) + minY;
+
+                botaoNao.style.left = newX + "px";
+                botaoNao.style.top = newY + "px";
+
+            }, 200);
+        });
+
+        // Efeito engraçado ao tentar clicar (ele "escorrega")
+        botaoNao.addEventListener("click", () => {
+            botaoNao.style.transition = "0.1s";
+            botaoNao.style.transform = "translateX(-50%) scale(0.5)";
+            setTimeout(() => {
+                botaoNao.style.transform = "translateX(-50%) scale(1)";
+            }, 120);
+        });
+    </script>
+
+</body>
+</html>

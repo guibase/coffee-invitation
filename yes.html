@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmado</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #f4f4f4, #e8e8e8);
+            font-family: "Segoe UI", sans-serif;
+            position: relative;
+        }
+
+        /* Botão elegante */
+        #btnMusica {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            padding: 10px 18px;
+            background: #2d77ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: 0.25s ease;
+        }
+
+        #btnMusica:hover {
+            background: #1f5ed1;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.55;
+            white-space: pre-line;
+            text-align: left;
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão para tocar música -->
+    <button id="btnMusica">🎵 Tocar música</button>
+
+    <!-- Áudio -->
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card">
+        <h1>Confirmado</h1>
+
+        <p>
+29 esteja pronta às 9h00, linda como sempre.
+Vamos tomar um cafézinho gostoso,
+Se quiser, você pode cantar roa roa roa no caminho,
+Depois ficamos ouvindo a pRAYlist,
+Obrigado por dedicar esse tempo a nós. Você é daora. TMJ
+        </p>
+    </div>
+
+    <script>
+        const botao = document.getElementById("btnMusica");
+        const musica = document.getElementById("musica");
+
+        let tocando = false;
+
+        botao.addEventListener("click", () => {
+            if (!tocando) {
+                musica.play();
+                tocando = true;
+                botao.textContent = "⏸ Pausar música";
+            } else {
+                musica.pause();
+                tocando = false;
+                botao.textContent = "> Tocar música";
+            }
+        });
+    </script>
+
+</body>
+</html>

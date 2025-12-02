@@ -1,4 +1,4 @@
-<h1 align="center"> Coffee Invite </h1>
+<h1 align="center"> Coffee Invitation </h1>
 
 <p align="center">
 Código feito com ajuda de IA para montar um convite a um date.

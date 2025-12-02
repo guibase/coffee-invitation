@@ -17,7 +17,7 @@ Código feito com ajuda de IA para montar um convite a um date.
 <br>
 
 <p align="center">
-  <img alt="projeto Coffee Invite" src=".github/preview.jpg" width="100%">
+  <img alt="projeto Coffee Invite" src="./assets/capa-readme.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias

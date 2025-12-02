@@ -1,0 +1,69 @@
+
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, #f4f4f4, #e8e8e8);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.container {
+    background: white;
+    padding: 40px 60px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    max-width: 420px;
+}
+
+h1 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.buttons {
+    margin-top: 30px;
+    height: 120px;
+    position: relative;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#sim {
+    background-color: #2d77ff;
+    color: white;
+}
+
+ #sim:hover {
+    background-color: #1f5ed1;
+}
+
+/* animação de tremer */
+@keyframes tremer {
+    0% { transform: translateX(-50%) translateY(0); }
+    25% { transform: translateX(-50%) translateY(-3px); }
+    50% { transform: translateX(-50%) translateY(3px); }
+    75% { transform: translateX(-50%) translateY(-2px); }
+    100% { transform: translateX(-50%) translateY(0); }
+}
+
+#nao {
+    background-color: #c9c9c9;
+    color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.25s ease, left 0.25s ease;
+}
